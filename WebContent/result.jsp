@@ -27,7 +27,7 @@ ArrayList value = LuceneSearcher.searchIndexFile("university of portland");
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="home.jsp">Home</a>
+        <a class="nav-link" href="home.jsp">Home </a>
       </li>
 
     </ul>

@@ -33,10 +33,15 @@
 <section>
 <div class="header-background">
 <div class="header-content">
-	<form method="post" id="search-form" action="SearchLucene">
+	<form method="post" action="SearchLucene">
 		<input type="text" name="searchfield" placeholder="Search for a University"> 
 		<br> <br>
 		<button class="btn btn-primary" type="submit" value="searchLucence">Search with Lucene</button>
+	</form>
+	
+		<form method="post" action="SearchHadoop">
+		<input type="text" name="searchfield" placeholder="Search for a University"> 
+		<br> <br>
 		<button class="btn btn-primary" type="submit" value="searchHadoop" href="">Search with Hadoop</button>
 	</form>
 </div>

@@ -13,9 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/roya/git/CollegeCrawling/lucene-core-7.2.1.jar"/>
-	<classpathentry kind="lib" path="/Users/roya/git/CollegeCrawling/lucene-queryparser-7.2.1.jar"/>
-	<classpathentry kind="lib" path="/Users/roya/git/CollegeCrawling/mysql-connector-java-5.1.45-bin.jar"/>
-	<classpathentry kind="lib" path="/Users/roya/git/CollegeCrawling/twitter4j-core-4.0.4.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/git/TwiterCrawler-WebApp/WebContent/WEB-INF/lib/lucene-core-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/git/TwiterCrawler-WebApp/WebContent/WEB-INF/lib/lucene-queryparser-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/git/TwiterCrawler-WebApp/WebContent/WEB-INF/lib/mysql-connector-java-5.1.45-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/git/TwiterCrawler-WebApp/WebContent/WEB-INF/lib/twitter4j-core-4.0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

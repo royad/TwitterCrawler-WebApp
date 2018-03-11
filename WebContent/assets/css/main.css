@@ -1,0 +1,45 @@
+html, body {
+	height: 100%;
+	overflow:auto;
+}
+
+section{
+	height: 100%;
+}
+
+.container{
+	padding: 100px 0px;
+}
+.header-background{
+	background: linear-gradient(
+      rgba(192,192,192, 0.45), 
+      rgba(192,192,192, 0.45)
+    ), url('../images/student.jpg') no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	background-attachment: fixed;
+}
+
+.header-content{
+	opacity: 1;
+	position: relative;
+	top: 50%;
+	left: 40%;
+}
+
+.header-content input{
+	padding: 7px;
+}
+
+
+
+//results page
+table tr{
+	width:100%;
+}
+table tr td{
+	width:33%;
+}
+
+

@@ -29,6 +29,7 @@ public class LuceneSearcher {
 		ArrayList<String> studentProfiles = new ArrayList<String>();
 		try {
 			DirectoryReader ireader = DirectoryReader.open(FSDirectory.open(Paths.get("/Users/roya/git/TwiterCrawler-WebApp/LuceneIndex")));
+			System.out.println("ireader is " + ireader);
 			IndexSearcher isearcher = new IndexSearcher(ireader);
 		    // Parse a simple query that searches for "text":
 		    QueryParser parser = new QueryParser("universities", new StandardAnalyzer());
@@ -38,7 +39,7 @@ public class LuceneSearcher {
 		    // Iterate through the results:
 		    for (int i = 0; i < hits.length; i++) {
 		      Document hitDoc = isearcher.doc(hits[i].doc);
-		      //System.out.println(hitDoc.getFields("universities")[0]);
+		      System.out.println(hitDoc.getFields("universities")[0]);
 		      //System.out.println(hitDoc.getField("name").stringValue());
 		      String name = hitDoc.getField("name").stringValue();
 		      //String iname = hitDoc.getFields("name")[0].stringValue();
@@ -69,6 +70,8 @@ public class LuceneSearcher {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.getMessage();
 		}
 		return studentProfiles;
 	}

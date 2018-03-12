@@ -38,7 +38,7 @@ public class TestHadoopQuery {
 		
 	}
 	
-	public static String getResult() throws IOException, SQLException {
+	public static ArrayList<Long> getResult() throws IOException, SQLException {
 		// TODO Auto-generated method stub
 				HadoopSearcher hadoopQuery = new HadoopSearcher();
 				ArrayList<TermInfo> uniList;
@@ -52,6 +52,7 @@ public class TestHadoopQuery {
 				long startTime = System.currentTimeMillis();
 				ArrayList<TermInfo> q1 =hadoopQuery.getUniversityValueByName("\"university of california, san diego\"");
 				long timeuse = System.currentTimeMillis()-startTime;
+				ArrayList<Long> userId = new ArrayList<>();
 				
 				System.out.println(" q1 is " + q1);
 				//System.out.println("getUniversityValueByName timeuse: "+timeuse +"milisec");
@@ -62,9 +63,10 @@ public class TestHadoopQuery {
 					System.out.println("users " + q1_userId);
 					StudentWithFreq q1_result = ReadMySQL.readUserByCol("userId",q1_userId);
 					System.out.println(q1_result.userId+" "+q1_result.majorList+" "+q1_result.uniList);
+					userId.add(q1_result.userId);
 				}
 				
-				return q1_userId;
+				return userId;
 	}
 
 }

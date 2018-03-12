@@ -12,9 +12,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-core-7.2.1.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.45-bin.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-queryparser-7.2.1.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/twitter4j-core-4.0.4.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/Downloads/lib/lucene-core-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/Downloads/lib/lucene-queryparser-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/Downloads/lib/mysql-connector-java-5.1.45-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/roya/Downloads/lib/twitter4j-core-4.0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

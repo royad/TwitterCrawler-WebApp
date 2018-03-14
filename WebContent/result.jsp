@@ -10,12 +10,17 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 <%
 Object searchedTerm = request.getAttribute("searchedTerm");
-ArrayList value = LuceneSearcher.searchIndexFile("university of portland");
+String searchedTermStr = searchedTerm.toString();
+
+LuceneSearcher lucene = new LuceneSearcher();
+
+ArrayList value = lucene.searchLuceneIndex(searchedTermStr);
 %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!-- <a class="navbar-brand" href="#">Navbar</a> -->
@@ -26,7 +31,7 @@ ArrayList value = LuceneSearcher.searchIndexFile("university of portland");
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="home.jsp">Home</a>
+        <a class="nav-link" href="home.jsp"><i class="fas fa-id-badge"></i> Home</a>
       </li>
 
     </ul>
@@ -36,7 +41,23 @@ ArrayList value = LuceneSearcher.searchIndexFile("university of portland");
 <section style="height:50%;">
 <div class="header-background">
 <div class="header-content">
-<%=searchedTerm %>
+	<form method="post" action="SearchLucene" style="width:100%;">
+			<div class="row">
+			<div class="col-md-12">
+		<input type="text" name="searchfield" placeholder="Search for a University" style="width:100%;">
+		</div>
+		</div> 
+		<br>
+		<div class="row">
+		<div class="col-md-6">
+		<input class="btn btn-primary" type="submit" value="Search Lucene" name="submitButton" style="width:100%;">
+		</div>
+		<div class="col-md-6">
+				<input class="btn btn-primary" type="submit" value="Search Hadoop" name="submitButton" style="width:100%;">
+				</div>
+				</div>
+		
+	</form>
 </div>
 </div>
 </section>
@@ -45,12 +66,15 @@ ArrayList value = LuceneSearcher.searchIndexFile("university of portland");
 <div class="container">
 <table class="table">
 <tbody>
+<h4><%=searchedTermStr.toUpperCase() %></h4><br><br>
+
 
 <% for (int i = 0; i < value.size(); i++ ) { %>
 <tr>
 <td><img src="assets/images/student.jpg" class="img-fluid img-thumbnail"></td>
-<td><%= value.get(i)%><br><%=value.get(++i)%><br><%=value.get(++i)%></td>
-<td><%=value.get(++i)%><br><%=value.get(++i)%></td>
+<td><%= value.get(i)%><br><%=value.get(++i)%><br><br><b>Lives in: </b><%=value.get(++i)%></td>
+<td><b>Goes to: </b><br><%=value.get(++i)%><br><br>
+<b>Studies: </b><br><%=value.get(++i)%></td>
 </tr>
 <% } %>
 </tbody>

@@ -8,7 +8,7 @@ import cs242project.HadoopSearcher.TermInfo;
 
 public class TestHadoopQuery {
 
-	public static void main(String[] args) throws IOException, SQLException{
+	public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException{
 		/*// TODO Auto-generated method stub
 		HadoopSearcher hadoopQuery = new HadoopSearcher();
 		ArrayList<TermInfo> uniList;
@@ -38,7 +38,7 @@ public class TestHadoopQuery {
 		
 	}
 	
-	public static ArrayList<Long> getResult() throws IOException, SQLException {
+	public static ArrayList<Long> getResult() throws IOException, SQLException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 				HadoopSearcher hadoopQuery = new HadoopSearcher();
 				ArrayList<TermInfo> uniList;
@@ -52,7 +52,7 @@ public class TestHadoopQuery {
 				long startTime = System.currentTimeMillis();
 				ArrayList<TermInfo> q1 =hadoopQuery.getUniversityValueByName("\"university of california, san diego\"");
 				long timeuse = System.currentTimeMillis()-startTime;
-				ArrayList<Long> userId = new ArrayList<>();
+				ArrayList<Long> students = new ArrayList<>();
 				
 				System.out.println(" q1 is " + q1);
 				//System.out.println("getUniversityValueByName timeuse: "+timeuse +"milisec");
@@ -60,13 +60,16 @@ public class TestHadoopQuery {
 				//from hadoopIndex get userID to search in mysql
 				for (int i=0;i<10;i++) {
 					q1_userId = q1.get(i).termId;
-					System.out.println("users " + q1_userId);
+					//System.out.println("users " + q1_userId);
 					StudentWithFreq q1_result = ReadMySQL.readUserByCol("userId",q1_userId);
-					System.out.println(q1_result.userId+" "+q1_result.majorList+" "+q1_result.uniList);
-					userId.add(q1_result.userId);
+					System.out.println(q1_result.userId+"\n"+q1_result.majorList+"\n"+q1_result.uniList+"\n"+q1_result.profileImageURL);
+					//ArrayList<TermInfo> majors = q1_result.majorList;
+					//ArrayList<TermInfo> uni = q1_result.uniList;
+					students.add(q1_result.userId);
+					//students.add(q1_result.majorList);
 				}
 				
-				return userId;
+				return students;
 	}
 
 }

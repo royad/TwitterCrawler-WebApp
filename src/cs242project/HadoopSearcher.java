@@ -5,22 +5,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.*;
-
-import cs242project.HadoopSearcher.TermInfo;
 
 public class HadoopSearcher {
     private static String HadoopIdxUniPath = "/Users/roya/git/TwiterCrawler-WebApp/hadoopIndex/";
+    private static String sqlUserName  = "root";
+    private static String sqlPassword  = "roya";
     
     public static HashMap<TermInfo,String> hIdxUniversity;
     public HashMap<TermInfo,String> hIdxMajor;
-    public static HashMap<TermInfo,String> hIdxLocation;
+    public HashMap<TermInfo,String> hIdxLocation;
     public HashMap<TermInfo,String> hIdxDescription;
     
     public static HashMap<String,Integer> hIdxUniversityKey;
     public HashMap<String,Integer> hIdxMajorKey;
-    public static HashMap<String,Integer> hIdxLocationKey;
+    public HashMap<String,Integer> hIdxLocationKey;
     public HashMap<String,Integer> hIdxDescriptionKey;
     
     
@@ -211,8 +210,6 @@ public class HadoopSearcher {
 		ArrayList<TermInfo> val = convertLast(stringVal);
 		Collections.sort(val,Collections.reverseOrder());	
 	
-		System.out.println(val);
-		System.out.println("testing");
 		return val;		
 	}
 	public ArrayList<TermInfo> getMajorValueByName(String input) {
@@ -238,7 +235,7 @@ public class HadoopSearcher {
 		
 		return val;		
 	}
-	public static ArrayList<TermInfo> getLocationValueByName(String input) {
+	public ArrayList<TermInfo> getLocationValueByName(String input) {
 		int freq = hIdxLocationKey.get(input);
 		TermInfo queryT = new TermInfo();
 		queryT.termId = input;
@@ -246,32 +243,10 @@ public class HadoopSearcher {
 		String stringVal = hIdxLocation.get(queryT);
 		ArrayList<TermInfo> val = convertLast(stringVal);
 		Collections.sort(val,Collections.reverseOrder());	
-		System.out.println(val);
-		System.out.println("testing");
 		
 		return val;		
 	}
-	
-	
-	/*public static StudentWithFreq getResult() {
-		ArrayList<TermInfo> q1 = getUniversityValueByName("\"university of california, san diego\"");
-		StudentWithFreq q1_result = null;
-		for (int i=0;i<10;i++) {
-			String q1_userId = q1.get(i).termId;
-			System.out.println("users " + q1_userId);
-			try {
-				System.out.println("try clause");
-				q1_result = ReadMySQL.readUserByCol("userId",q1_userId);
-				System.out.println("result " + q1_result);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		System.out.println("testing " + q1_result.userId+" "+q1_result.majorList+" "+q1_result.uniList);
-		return q1_result;
-	}
-*/
+
     
     	
 

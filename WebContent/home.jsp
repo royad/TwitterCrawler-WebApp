@@ -12,10 +12,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <link rel="stylesheet" href="assets/css/main.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
+
 </head>
 <body>
+<!--  
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,30 +34,66 @@
 
     </ul>
   </div>
-</nav>
+</nav>-->
+
 <section>
+
 <div class="header-background">
-<div class="header-content">
-	<form method="post" action="SearchLucene">
-		<input type="text" name="searchfield" placeholder="Search for a University"> 
-		<br> <br>
-		<button class="btn btn-primary" type="submit" value="searchLucence">Search with Lucene</button>
+<!--  <video autoplay muted loop id="myVideo">
+  <source src="assets/images/walking.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>-->
+
+<div class="header-content" align="center">
+	<!-- <h1 style="padding-bottom:50px;color:#fff">Find Students</h1>-->
+
+	<form method="post" action="SearchLucene" style="width:100%;">
+			<div class="row">
+			<div class="col-md-12">
+		<input type="text" name="searchfield" placeholder="Search for a University" style="width:100%;">
+		</div>
+		</div> 
+		<br>
+		<div class="row">
+		<div class="col-md-6">
+		<input class="btn btn-primary" type="submit" value="Search Lucene" name="submitButton" style="width:100%;">
+		</div>
+		<div class="col-md-6">
+				<input class="btn btn-primary" type="submit" value="Search Hadoop" name="submitButton" style="width:100%;">
+				</div>
+				</div>
+		
 	</form>
-	<!--  -->
+	<!-- 
 		<form method="post" action="SearchHadoop">
 		<input type="text" name="searchfield" placeholder="Search for a University"> 
 		<br> <br>
-		<button class="btn btn-primary" type="submit" value="searchHadoop" href="">Search with Hadoop</button>
-	</form>
+		<input class="btn btn-primary" type="submit" value="searchHadoop" name="submitButton">Search with Hadoop
+	</form>-->
 </div>
+<a href="#aboutproject">
+<div class="header-arrow" id="arrow" align="center">
+<i class="down"></i>
+</div>
+</a>
 </div>
 </section>
-
+<script>
+$('a[href^="#"]').on('click', function(event) {
+    var target = $(this.getAttribute('href'));
+    if( target.length ) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: target.offset().top
+        }, 1000);
+    }
+});
+</script>
 <section id="aboutproject">
 <div class="container">
 <div align="center">
 <div class="title">
-<span>CS242 Project</span>
+<span>Information Retrieval Project</span>
 </div>
 </div>
 <div class="row">
@@ -131,6 +170,19 @@ Daniel<br><br> Master's student in Computer Science at UCR <br><br>
 &copy; copyright 2018
 </div>
 </footer>
+
+<script>
+$(document).ready(function animate() {
+	$('#arrow').animate({
+		"marginTop" : "-=30px"
+	});
+	$('#arrow').animate({
+		"marginTop" : "+=30px"
+	});
+});
+
+
+</script>
 
 </body>
 </html>

@@ -15,8 +15,16 @@ public class ReadMySQL {
 
 	
 	
-	public static StudentWithFreq readUserByCol(String col, String cmpString) throws SQLException {
+	public static StudentWithFreq readUserByCol(String col, String cmpString) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/twitter_students?autoReconnect=true&useSSL=false", sqlUserName, sqlPassword);
+		if(conn!=null) {
+			System.out.println("connected to db");
+		}
+		else {
+			System.out.println("Couldnt connect to db");
+		}
         String query = "SELECT * FROM twitter_students.students WHERE "+col+" = '"+ cmpString+"'" ;
         
         conn.setAutoCommit(false);
@@ -30,7 +38,7 @@ public class ReadMySQL {
         
         
         String screenName = null,name = null,location = null,description = null,major= null;
-        String university = null,userId = null; 
+        String university = null,userId = null,imageURL=null; 
         
         while(rs.next()) {	
        	 	userId = rs.getString("userId");
@@ -39,7 +47,9 @@ public class ReadMySQL {
      	   	location = rs.getString("location");
      	   	description = rs.getString("description");
      	   	major = rs.getString("major");
+     	   	//System.out.println("major is " + major);
      	   	university = rs.getString("universities");
+     	   	imageURL = rs.getString("imageURL");
         }
         
         rs.close();
@@ -50,7 +60,9 @@ public class ReadMySQL {
         result.screenName = screenName;
         result.location = location;
         result.description = description;
+        result.profileImageURL = imageURL;
         result.majorList = convertToTermInfo(major);
+        //System.out.println("major list is " +result.majorList);
         result.uniList = convertToTermInfo(university);
 //        result.add(userId);
 //        result.add(screenName);
@@ -92,6 +104,8 @@ public class ReadMySQL {
 	}
 	public static ArrayList<TermInfo> convertToTermInfo(String text){
 		ArrayList<TermInfo> result  = new ArrayList<TermInfo> ();
+		
+		System.out.println("text is "+text);
         
 		// fix UMC - University of Missouri, Columbia" mistake;
 		text =text.replaceAll(", columbia\"","");
@@ -106,7 +120,7 @@ public class ReadMySQL {
 			String[] eachTerm = splitted[i].split("=(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 			
 			tmp.termId = eachTerm[0].trim();
-			//tmp.tf = Integer.parseInt(eachTerm[1]);
+			tmp.tf = Integer.parseInt(eachTerm[1]);
 			result.add(tmp);
 					
 		}

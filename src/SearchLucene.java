@@ -46,10 +46,20 @@ public class SearchLucene extends HttpServlet {
 
 		String searchTerm = request.getParameter("searchfield");
 		request.setAttribute("searchedTerm", searchTerm);
+		
+		String submitVal = request.getParameter("submitButton");
+		System.out.println("submit val " + submitVal);
 
 		//System.out.println("search term is " + searchTerm);
 		//System.out.println("searched term is " + request.getAttribute("searchedTerm"));
+		if(submitVal.equals("Search Lucene")) {
+			System.out.println("lucene");
         request.getRequestDispatcher("result.jsp").forward(request, response);
+		}
+		else {
+			System.out.println("hadoop");
+	        request.getRequestDispatcher("hadoopresult.jsp").forward(request, response);
+		}
 		//response.sendRedirect("result.jsp");
 	}
 

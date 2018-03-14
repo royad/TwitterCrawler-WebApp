@@ -13,40 +13,81 @@ section {
 	padding: 100px 0px;
 }
 
-.header-background {
+.btn{
+	border-radius: 3px;
+}
+
+.header-background{
+	height:100%;
+	width:100%;
+	position:relative;
+}
+
+.header-background{
 	background: linear-gradient(rgba(192, 192, 192, 0.45),
 		rgba(192, 192, 192, 0.45)), url('../images/student.jpg') no-repeat;
 	background-size: cover;
 	height: 100%;
 	width: 100%;
 	background-attachment: fixed;
+	position:relative;
 }
+
 
 .header-content {
+	//border-radius:2px;
+	//background-color:rgba(220,220,220,0.5);
+	padding:50px 50px;
 	opacity: 1;
-	position: relative;
-	top: 50%;
-	left: 40%;
+	position: absolute;
+	top: 45%;
+	left: 35%;
 }
 
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+      border: solid #007bff;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  font-size:50px;
+  padding: 18px;
+}
+
+.header-arrow:hover .down{
+	border: solid #0069d9;
+	    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  font-size:50px;
+  padding: 18px;
+}
 .header-content input {
 	padding: 7px;
+}
+
+.header-arrow{
+	height:50px;
+	position:absolute;
+	bottom:2%;
+	left:47%;
 }
 
 #aboutproject p{
 	line-height: 45px;
 }
 .title {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #000;
 	width: 80%;
-	height: 20px; //
+	height: 23px; 
 	padding: 0px 0px;
 	margin-bottom: 50px;
 }
 
 .title span {
 	font-size: 28px;
-	padding: 10px 20px;
+	padding: 20px 20px;
 	background-color: #fff;
 }
 
@@ -118,12 +159,13 @@ section {
 }
 
 //results page
-table tr {
+.table, tr {
 	width: 100%;
 }
 
-table tr td {
-	width: 33%;
+.table td {
+	width: 30%;
+	padding:3%;
 }
 
 footer{

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class HadoopSearcher {
-    private static String HadoopIdxUniPath = "/Users/roya/git/TwiterCrawler-WebApp/hadoopIndex/";
+    private static String HadoopIdxUniPath = "/Users/roya/git/TwitterCrawler-WebApp/hadoopIndex/";
     private static String sqlUserName  = "root";
     private static String sqlPassword  = "roya";
     

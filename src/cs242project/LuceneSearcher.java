@@ -268,7 +268,7 @@ public class LuceneSearcher {
 			}
 			
 			// Set up Lucene
-			DirectoryReader ireader = DirectoryReader.open(FSDirectory.open(Paths.get("/Users/roya/git/TwiterCrawler-WebApp/LuceneIndex")));
+			DirectoryReader ireader = DirectoryReader.open(FSDirectory.open(Paths.get("/Users/roya/git/TwitterCrawler-WebApp/LuceneIndex")));
 			IndexSearcher isearcher = new IndexSearcher(ireader);
 			
 			// Parse a simple query that searches for text

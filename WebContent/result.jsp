@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Lucene Results</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@ ArrayList value = lucene.searchLuceneIndex(searchedTermStr);
 <section style="height:50%;">
 <div class="header-background">
 <div class="header-content">
-	<form method="post" action="SearchLucene" style="width:100%;">
+	<form method="post" action="Search" style="width:100%;">
 			<div class="row">
 			<div class="col-md-12">
 		<input type="text" name="searchfield" placeholder="Search for a University" style="width:100%;">
@@ -66,13 +66,18 @@ ArrayList value = lucene.searchLuceneIndex(searchedTermStr);
 <div class="container">
 <table class="table">
 <tbody>
+
 <h4><%=searchedTermStr.toUpperCase() %></h4><br><br>
 
+<% if(value.size()==0){ %>
+<h4>No results found</h4>
+<%} %>
 
 <% for (int i = 0; i < value.size(); i++ ) { %>
 <tr>
-<td><img src="assets/images/student.jpg" class="img-fluid img-thumbnail"></td>
-<td><%= value.get(i)%><br><%=value.get(++i)%><br><br><b>Lives in: </b><%=value.get(++i)%></td>
+<td><img src=<%=value.get(i).toString().replace("_normal","")%> class="img-fluid img-thumbnail" style="max-width:250px;max-height:250px;"><br><br>
+<%=value.get(++i) %></td>
+<td><%= value.get(++i)%><br><%=value.get(++i)%><br><br><b>Lives in: </b><%=value.get(++i)%></td>
 <td><b>Goes to: </b><br><%=value.get(++i)%><br><br>
 <b>Studies: </b><br><%=value.get(++i)%></td>
 </tr>

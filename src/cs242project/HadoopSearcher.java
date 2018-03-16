@@ -201,15 +201,20 @@ public class HadoopSearcher {
 		return result;		
 	}
 	
-	public static ArrayList<TermInfo> getUniversityValueByName(String input) {		
+	public static ArrayList<TermInfo> getUniversityValueByName(String input) {	
+		ArrayList<TermInfo> val = null;
+		try {
 		int freq = hIdxUniversityKey.get(input);
 		TermInfo queryT = new TermInfo();
 		queryT.termId = input;
 		queryT.tf = freq;
 		String stringVal = hIdxUniversity.get(queryT);
-		ArrayList<TermInfo> val = convertLast(stringVal);
+		val = convertLast(stringVal);
 		Collections.sort(val,Collections.reverseOrder());	
-	
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		return val;		
 	}
 	public ArrayList<TermInfo> getMajorValueByName(String input) {

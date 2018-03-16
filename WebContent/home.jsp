@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Twitter Crawler</title>
 <script src="jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -47,7 +47,7 @@
 <div class="header-content" align="center">
 	<!-- <h1 style="padding-bottom:50px;color:#fff">Find Students</h1>-->
 
-	<form method="post" action="SearchLucene" style="width:100%;">
+	<form method="post" action="Search" style="width:100%;">
 			<div class="row">
 			<div class="col-md-12">
 		<input type="text" name="searchfield" placeholder="Search for a University" style="width:100%;">
@@ -103,7 +103,7 @@ $('a[href^="#"]').on('click', function(event) {
 </div>
 </div>
 <div class="col float-left">
-	<p>This project crawls Twitter to find accounts that follow university Twitter profiles. It then determines what university the user goes to nd what their major is
+	<p>This project crawls Twitter to find accounts that follow university Twitter profiles. It then determines what university the user goes to and what their major is
 	based on the information they have provided in their bio as well as their 200 most recent tweets.</p>
 </div>
 
@@ -123,7 +123,7 @@ $('a[href^="#"]').on('click', function(event) {
 <img src="assets/images/RoyaDelparastaran.jpg" class="img-fluid">
 </div>
 <div class="card-back" align="center">
-Roya<br><br> Master's student in Computer Science at UCR <br><br>
+Roya<br><br> Master's student in Computer Science at UCR <br><br><br>
 <a href="https://www.linkedin.com/in/roya-delparastaran" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <a href="https://github.com/royad" target="_blank"><i class="fab fa-github fa-3x"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <a href="mailto:rdelp002@ucr.edu"><i class="fab fa-google fa-3x"></i></a>
@@ -135,13 +135,13 @@ Roya<br><br> Master's student in Computer Science at UCR <br><br>
 <div class="col-md-4">
 <div class="card">
 <div class="card-front">
-<img src="assets/images/student.jpg" class="img-fluid">
+<img src="assets/images/brook.jpg" class="img-fluid">
 </div>
 <div class="card-back" align="center">
-Jakupan<br><br> PhD student in Computer Science at UCR <br><br>
-<i class="fab fa-linkedin fa-3x"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<i class="fab fa-github fa-3x"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<i class="fab fa-google fa-3x"></i>
+Jakapun<br><br> PhD student in Computer Science at UCR <br><br><br>
+<a href="https://www.linkedin.com/in/jakapun-tachaiya-8abba9118" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="https://github.com/JakapunTachaiya" target="_blank"><i class="fab fa-github fa-3x"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="mailto:jtach001@ucr.edu"><i class="fab fa-google fa-3x"></i></a>
 </div>
 
 </div>
@@ -150,13 +150,13 @@ Jakupan<br><br> PhD student in Computer Science at UCR <br><br>
 <div class="col-md-4">
 <div class="card">
 <div class="card-front">
-<img src="assets/images/student.jpg" class="img-fluid">
+<img src="assets/images/daniel.jpg" class="img-fluid">
 </div>
 <div class="card-back" align="center">
-Daniel<br><br> Master's student in Computer Science at UCR <br><br>
-<i class="fab fa-linkedin fa-3x"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<i class="fab fa-github fa-3x"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<i class="fab fa-google fa-3x"></i>
+Daniel<br><br> Master's student in Computer Science at UCR <br><br><br>
+<a href="https://www.linkedin.com/in/daniel-handojo-646963139" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="https://github.com/Fire3galaxy" target="_blank"><i class="fab fa-github fa-3x"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="mailto:dhand002@ucr.edu"><i class="fab fa-google fa-3x"></i></a>
 </div>
 
 </div>
@@ -171,18 +171,7 @@ Daniel<br><br> Master's student in Computer Science at UCR <br><br>
 </div>
 </footer>
 
-<script>
-$(document).ready(function animate() {
-	$('#arrow').animate({
-		"marginTop" : "-=30px"
-	});
-	$('#arrow').animate({
-		"marginTop" : "+=30px"
-	});
-});
 
-
-</script>
 
 </body>
 </html>

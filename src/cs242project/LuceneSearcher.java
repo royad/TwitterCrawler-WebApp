@@ -83,6 +83,8 @@ public class LuceneSearcher {
 //			}
 			
 			// For website: Top major and university, even if doesn't match query
+			studentProfiles.add(d.getField("profileImageUrl").stringValue());
+			studentProfiles.add(d.getField("description").stringValue());
 			studentProfiles.add(d.getField("name").stringValue());
 			studentProfiles.add(d.getField("screenName").stringValue());
 			studentProfiles.add(d.getField("location").stringValue());
@@ -100,6 +102,8 @@ public class LuceneSearcher {
 		Map<Document, Integer> sortedTweetUsers = MapUtil.sortByValue(searcher.usersInTweets);
 		for (Document d : sortedTweetUsers.keySet()) {
 			// For website: Top major and university, even if doesn't match query
+			studentProfiles.add(d.getField("profileImageUrl").stringValue());
+			studentProfiles.add(d.getField("description").stringValue());
 			studentProfiles.add(d.getField("name").stringValue());
 			studentProfiles.add(d.getField("screenName").stringValue());
 			studentProfiles.add(d.getField("location").stringValue());
@@ -116,6 +120,8 @@ public class LuceneSearcher {
 		Map<Document, Float> sortedLeastRelUsers = MapUtil.sortByValue(searcher.usersLeastRel);
 		for (Document d : sortedLeastRelUsers.keySet()) {
 			// For website: Top major and university, even if doesn't match query
+			studentProfiles.add(d.getField("profileImageUrl").stringValue());
+			studentProfiles.add(d.getField("description").stringValue());
 			studentProfiles.add(d.getField("name").stringValue());
 			studentProfiles.add(d.getField("screenName").stringValue());
 			studentProfiles.add(d.getField("location").stringValue());

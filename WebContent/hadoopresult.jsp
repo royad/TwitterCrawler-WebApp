@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Hadoop Results</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -18,7 +18,7 @@
 <%
 HadoopSearcher hadoopQuery = new HadoopSearcher();
 Object searchedTerm = request.getAttribute("searchedTerm");
-ArrayList<TermInfo> location = hadoopQuery.getUniversityValueByName("\"university of california, san diego\"");
+//ArrayList<TermInfo> location = hadoopQuery.getUniversityValueByName("\"university of california, san diego\"");
 
 StudentWithFreq q1_result = new StudentWithFreq();
 TermInfo termInfo = new TermInfo();
@@ -47,7 +47,7 @@ String searchedTermStr = searchedTerm.toString();
 <section style="height:50%;">
 <div class="header-background">
 <div class="header-content">
-	<form method="post" action="SearchLucene" style="width:100%;">
+	<form method="post" action="Search" style="width:100%;">
 			<div class="row">
 			<div class="col-md-12">
 		<input type="text" name="searchfield" placeholder="Search for a University" style="width:100%;">
@@ -77,14 +77,18 @@ String termLowerCase = searchedTermStr.toLowerCase();
 <table class="table">
 <tbody>
 <h4><%=searchedTermStr.toUpperCase() %></h4><br><br>
-<% for (int i = 0; i < 500; i++ ) {
-	ArrayList<TermInfo> q1 = new ArrayList<TermInfo>();
+
+
+<% 
+ArrayList<TermInfo> q1 = new ArrayList<TermInfo>();
+for (int i = 0; i < 500000; i++ ) {
 if(termLowerCase.contains(",")) {
 q1 =hadoopQuery.getUniversityValueByName("\""+termLowerCase+"\"");
 }
 else {
 	q1 =hadoopQuery.getUniversityValueByName(termLowerCase);
 }
+if(q1 != null){
 String q1_userId = q1.get(i).termId;
 q1_result = ReadMySQL.readUserByCol("userId",q1_userId);
 String src = q1_result.getProfileImageURL();
@@ -97,6 +101,7 @@ int majorSize = q1_result.getMajorListNoFreq().size();
 if (majorSize > 3){
 	majorSize = 3;
 }
+
 %>
 <tr>
 <td><img src=<%=src%> class="img-fluid img-thumbnail" style="max-width:250px;max-height:250px;"><br><br>
@@ -113,7 +118,9 @@ if (majorSize > 3){
 </td>
 
 </tr>
-<% } %>
+<% }else {%>
+	<h4>No results found</h4><br><br>
+	<% break;}}%>
 </tbody>
 </table>
 </div>
